@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Orchid\Platform\Models\User as AuthenticatableOrchid;
 
-class User extends Authenticatable
+class User extends AuthenticatableOrchid
 {
-    use HasApiTokens, HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
         'name',
@@ -31,7 +32,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function posts() {
+    public function posts()
+    {
         return $this->hasMany(Post::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->is_admin === true;
     }
 }
