@@ -4,6 +4,7 @@ use App\Orchid\PlatformProvider;
 use Orchid\Attachment\Engines\Generator;
 use Orchid\Support\BootstrapIconsPath;
 
+
 return [
 
     /*
@@ -324,5 +325,6 @@ return [
      */
 
     'provider' => PlatformProvider::class,
+
 
 ];

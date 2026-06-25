@@ -19,6 +19,10 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
+use App\Orchid\Screens\UsersListScreen;
+use App\Orchid\Screens\UsersEditScreen;
+use App\Orchid\Screens\PostsListScreen;
+use App\Orchid\Screens\PostsEditScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,5 +104,13 @@ Route::screen('/examples/layouts', ExampleLayoutsScreen::class)->name('platform.
 Route::screen('/examples/grid', ExampleGridScreen::class)->name('platform.example.grid');
 Route::screen('/examples/charts', ExampleChartsScreen::class)->name('platform.example.charts');
 Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
+
+Route::screen('users', UsersListScreen::class)->name('platform.users.list');
+Route::screen('users/create', UsersEditScreen::class)->name('platform.users.create');
+Route::screen('users/{user}/edit', UsersEditScreen::class)->name('platform.users.edit');
+
+Route::screen('posts', PostsListScreen::class)->name('platform.posts.list');
+Route::screen('posts/create', PostsEditScreen::class)->name('platform.posts.create');
+Route::screen('posts/{post}/edit', PostsEditScreen::class)->name('platform.posts.edit');
 
 // Route::screen('idea', Idea::class, 'platform.screens.idea');
